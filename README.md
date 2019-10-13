@@ -55,18 +55,19 @@ The minified javascript file in the `/dist` folder is built with webpack with `l
 
 The `options` parameter is not required and has default values.
 
-| param               | type        | default                                         | detail                                                                                                   |
-|---------------------|-------------|-------------------------------------------------|----------------------------------------------------------------------------------------------------------|
-| scrollableContainer | HTMLElement | `document.body`                                 | The HTML element that is scrollable the method `.scrollBy({options})` will be used on it for the scroll. |
-| scrollByTop         | Number      | `scrollableContainer.clientHeight * 0.65`       | Value of the top scroll.                                                                                 |
-| scrollByLeft        | Number      | `scrollableContainer.clientWidth * 0.65`        | Value of the left scroll.                                                                                |
-| scrollByBehavior    | String      | `smooth`                                        | Behavior of the scroll.                                                                                  |
-| scrollByOptions     | Object      | `{scrollByTop, scrollByLeft, scrollByBehavior}` | Option object passed to the `.scrollBy` method.                                                          |
-| scrollDebounce      | Number      | `100`                                           | Number of milliseconds passed on the debounce for the scroll function.                                   |
-| clipLag             | Number      | `150`                                           | Number of milliseconds of timeout after the end of a detected noticeable noise.                          |
-| clipLevel           | Number      | `0.8`                                           | Level of 'volume' on which the scroll event will trigger. `0 < clipLevel < 1`                            |
-|                     |             |                                                 |                                                                                                          |
-
+| param               | type                    | default                                   | detail                                                                                                                |
+|---------------------|-------------------------|-------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
+| scrollableContainer | HTMLElement&#124;Object | `window`                                  | The HTML element (or object) that is scrollable, the method `.scrollBy({options})` will be used on it for the scroll. |
+| scrollMethod        | String                  | `scrollBy`                                | Method called on the `scrollableContainer`.                                                                           |
+| scrollTop           | Number&#124;Function    | `window.innerHeight * 0.65`               | Value of the top scroll.                                                                                              |
+| scrollLeft          | Number&#124;Function    | `0`                                       | Value of the left scroll.                                                                                             |
+| scrollBehavior      | String&#124;Function    | `smooth`                                  | Behavior of the scroll.                                                                                               |
+| scrollOptions       | Object&#124;Function    | `{scrollTop, scrollLeft, scrollBehavior}` | Option object passed to the `scrollMethod` method.                                                                    |
+| scrollDebounce      | Number                  | `100`                                     | Number of milliseconds passed on the debounce for the scroll function.                                                |
+| debug               | Boolean&#124;String     | `false`                                   | Enable debug logs, can also pass the method to call on the `console` object (`console[debug]`).                       |
+| clipLag             | Number                  | `150`                                     | Number of milliseconds of timeout after the end of a detected noticeable noise.                                       |
+| clipLevel           | Number                  | `0.8`                                     | Level of 'volume' on which the scroll event will trigger. `0 < clipLevel < 1`                                         |
+                                                                                           |
 ### `start()`
 
 Returns a Promise that is resolved if the browser supports the `mediaDevices`, `AudioContext` and if the user accepts to allow microphone on the web page.
