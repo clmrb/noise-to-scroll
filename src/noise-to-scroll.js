@@ -69,6 +69,7 @@ module.exports = (params) => {
     self.on = (event, listener) => {
         if (!self.eventsListeners[event]) self.eventsListeners[event] = [];
         self.eventsListeners[event].push(listener);
+        return self;
     };
 
     function triggerListeners (event, args) {
