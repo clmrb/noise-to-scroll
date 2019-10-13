@@ -1,15 +1,26 @@
 {
   "name": "noise-to-scroll",
   "version": "1.0.0",
-  "description": "",
+  "description": "A JavaScript library for browsers that allows users to scroll by making noise with their microphones.",
   "main": "dist/noise-to-scroll.js",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/clementraballand6/noise-to-scroll.git"
+  },
   "scripts": {
     "build": "webpack --config=webpack.prod.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "scroll",
+    "audio",
+    "blow",
+    "noise",
+    "webaudio"
+  ],
+  "homepage": "https://github.com/clementraballand6/noise-to-scroll",
+  "author": "Clément Raballand",
+  "license": "GPL-3.0-only",
   "browserslist": [
     "defaults"
   ],
