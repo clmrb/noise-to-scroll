@@ -2,7 +2,7 @@
   "name": "noise-to-scroll",
   "version": "1.0.0",
   "description": "A JavaScript library for browsers that allows users to scroll by making noise with their microphones.",
-  "main": "dist/noise-to-scroll.js",
+  "main": "dist/noise-to-scroll.min.js",
   "repository": {
     "type" : "git",
     "url" : "https://github.com/clementraballand6/noise-to-scroll.git"
