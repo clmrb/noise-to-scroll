@@ -3,6 +3,8 @@ A JavaScript library for browsers that allows users to scroll by making noise wi
 
 This library uses the Web Audio API (see <https://developer.mozilla.org/fr/docs/Web/API/Web_Audio_API>).
 
+[![Image from Gyazo](https://i.gyazo.com/afe5a1feab8c65d00c6186505aff21ae.gif)](https://gyazo.com/afe5a1feab8c65d00c6186505aff21ae)
+
 ## Installation
 
 ```bash
