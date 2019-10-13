@@ -21,7 +21,7 @@ npm install noise-to-scroll
   </head>
   <body>
     ...
-    <script src="http://unpkg.com/noise-to-scroll"></script>
+    <script src="https://unpkg.com/noise-to-scroll/dist/noise-to-scroll.min.js"></script>
     <script>
         noiseToScroll({scrollableContainer: document.querySelector('#myScrollableElement')})
             .start()
