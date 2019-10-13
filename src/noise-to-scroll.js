@@ -56,7 +56,8 @@ module.exports = (params) => {
         return self.detect()
             .then(function () {
                 audioContext = new (window.AudioContext || window.webkitAudioContext)();
-                return navigator.mediaDevices.getUserMedia({audio: true})
+                return audioContext.resume()
+                    .then(() => navigator.mediaDevices.getUserMedia({audio: true}))
                     .then(function (stream) {
                         mediaStreamSource = audioContext.createMediaStreamSource(stream);
                         meter = createAudioMeter(audioContext);
