@@ -4,11 +4,12 @@
   "description": "A JavaScript library for browsers that allows users to scroll by making noise with their microphones.",
   "main": "dist/noise-to-scroll.min.js",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/clementraballand6/noise-to-scroll.git"
+    "type": "git",
+    "url": "https://github.com/clementraballand6/noise-to-scroll.git"
   },
   "scripts": {
     "build": "webpack --config=webpack.prod.config.js",
+    "dev": "webpack-dev-server --watch --open --config=webpack.dev.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -29,6 +30,7 @@
     "@babel/preset-env": "^7.6.3",
     "babel-loader": "^8.0.6",
     "webpack": "^4.41.1",
-    "webpack-cli": "^3.3.9"
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.2"
   }
 }
