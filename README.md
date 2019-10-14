@@ -60,15 +60,18 @@ The `options` parameter is not required and has default values.
 |---------------------|-------------------------|-------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
 | scrollableContainer | HTMLElement&#124;Object | `window`                                  | The HTML element (or object) that is scrollable, the method `.scrollBy({options})` will be used on it for the scroll. |
 | scrollMethod        | String                  | `scrollBy`                                | Method called on the `scrollableContainer`.                                                                           |
-| scrollTop           | Number&#124;Function    | `window.innerHeight * 0.65`               | Value of the top scroll.                                                                                              |
-| scrollLeft          | Number&#124;Function    | `0`                                       | Value of the left scroll.                                                                                             |
-| scrollBehavior      | String&#124;Function    | `smooth`                                  | Behavior of the scroll.                                                                                               |
-| scrollOptions       | Object&#124;Function    | `{scrollTop, scrollLeft, scrollBehavior}` | Option object passed to the `scrollMethod` method.                                                                    |
+| scrollTop*          | Number&#124;Function    | `window.innerHeight * 0.65`               | Value of the top scroll.                                                                                              |
+| scrollLeft*         | Number&#124;Function    | `0`                                       | Value of the left scroll.                                                                                             |
+| scrollBehavior*     | String&#124;Function    | `smooth`                                  | Behavior of the scroll.                                                                                               |
+| scrollOptions*      | Object&#124;Function    | `{scrollTop, scrollLeft, scrollBehavior}` | Option object passed to the `scrollMethod` method.                                                                    |
 | scrollDebounce      | Number                  | `100`                                     | Number of milliseconds passed on the debounce for the scroll function.                                                |
 | debug               | Boolean&#124;String     | `false`                                   | Enable debug logs, can also pass the method to call on the `console` object (`console[debug]`).                       |
 | clipLag             | Number                  | `150`                                     | Number of milliseconds of timeout after the end of a detected noticeable noise.                                       |
 | clipLevel           | Number                  | `0.8`                                     | Level of 'volume' on which the scroll event will trigger. `0 < clipLevel < 1`                                         |
-                                                                                           |
+
+* (*) Function type in some parameters are designed mainly to re-evaluate a value but you can also use it to process custom values in your apps. Those function params are called on each scroll.
+
+**Note:** You can access and update at any time the options object by getting the instance returned by the constructor and use the `params` property (eg: `noiseToScroll({options}).params.scrollableContainer = document.body`).
 ### `start()`
 
 Returns a Promise that is resolved if the browser supports the `mediaDevices`, `AudioContext` and if the user accepts to allow microphone on the web page.
@@ -103,6 +106,27 @@ noiseToScroll()
     .catch((error) => {
         console.log(`browser doesn't support: ${error}`);
     )};
+```
+
+### `stop()`
+
+Method used to stop the audio processing and so the 'noiseToScroll'.
+
+```javascript
+let nts = noiseToScroll();
+nts.start()
+    .then(() => {
+        console.log('browser support OK and user allowed microphone access'); // noiseToScroll is up and running
+    })
+    .catch((error) => {
+        console.log(`unable to start noiseToScroll: ${error}`); // error contain the reason
+    )};
+    
+    // later on the code on a button click for example
+    nts.stop();
+    
+    // resume it later
+    nts.start();
 ```
 
 ### `on('event', listener)`
