@@ -25,7 +25,7 @@ module.exports = (params) => {
     params.scrollBehavior = params.scrollBehavior || function () {
         return 'smooth';
     };
-    params.scrollByOptions = params.scrollByOptions || function () {
+    params.scrollOptions = params.scrollOptions || function () {
         return {
             top: params.scrollTop(),
             left: params.scrollLeft(),
@@ -45,7 +45,7 @@ module.exports = (params) => {
         }
     };
 
-    ['scrollByOptions', 'scrollBehavior', 'scrollTop', 'scrollLeft']
+    ['scrollOptions', 'scrollBehavior', 'scrollTop', 'scrollLeft']
         .forEach((param) => {
             // convert non-function param to function returning the param
             if (typeof(params[param]) !== 'function') {
@@ -63,8 +63,8 @@ module.exports = (params) => {
     };
 
     self.scroll = debounce(() => {
-        self.debug(`.${params.scrollMethod}() fired with parameter`, params.scrollByOptions());
-        params.scrollableContainer[params.scrollMethod](params.scrollByOptions());
+        self.debug(`.${params.scrollMethod}() fired with parameter`, params.scrollOptions());
+        params.scrollableContainer[params.scrollMethod](params.scrollOptions());
         triggerListeners('scroll', []);
         triggerListeners('noise', [self.volume]);
     }, params.scrollDebounce);
