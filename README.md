@@ -122,11 +122,11 @@ nts.start()
         console.log(`unable to start noiseToScroll: ${error}`); // error contain the reason
     )};
     
-    // later on the code on a button click for example
-    nts.stop();
-    
-    // resume it later
-    nts.start();
+// later on the code on a button click for example
+nts.stop();
+
+// resume it later
+nts.start();
 ```
 
 ### `on('event', listener)`
