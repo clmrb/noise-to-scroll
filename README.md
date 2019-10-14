@@ -134,7 +134,7 @@ nts.start();
 Listen to the following events :
 
 - clipping : fired when a noise becomes noticeable according to `clipLevel`, no debounce, event is fired 100 times each seconds, listen carefully!
-- scroll : fired every time the `scrollBy` method is called on the `scrollableContainer`.
+- scroll : fired every time the `scrollMethod` is called on the `scrollableContainer`.
 - noise : similar to `scroll` event but the first param passed to the listener is the 'volume' that triggered the scroll.
 
 `.on()` methods can be chained.
