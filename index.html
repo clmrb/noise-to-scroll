@@ -10,13 +10,41 @@
         p {
             margin-bottom: 150px;
         }
+        h1 {
+            margin-top: 150px;
+        }
         body {
+            margin: 0;
             overflow-x: scroll;
             width: 800px;
+        }
+        .header {
+            top: 0;
+            background-color: rgba(204, 255, 255, 0.8);
+            position: fixed;
+            height: 8%;
+            width: 100%;
+        }
+        .header > div {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        label, input {
+            float: right;
         }
     </style>
 </head>
 <body>
+    <div class="header">
+        <div>
+            <button onclick="startNoiseToScroll(this)">Click here to start</button>
+            <label for="sensibility">Sensibility</label>
+            <input type="range" name="sensibility" id="sensibility" value="0.8" min="0" max="1" step="0.01" onchange="updateSensibility(this.value)">
+        </div>
+    </div>
     <h1>Make some noise to scroll</h1>
 
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquid autem culpa cum dignissimos dolore earum eligendi est eveniet explicabo, magni, neque nihil nisi praesentium reiciendis saepe sed velit voluptatum.</p>
@@ -62,5 +90,16 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquid autem culpa cum dignissimos dolore earum eligendi est eveniet explicabo, magni, neque nihil nisi praesentium reiciendis saepe sed velit voluptatum.</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquid autem culpa cum dignissimos dolore earum eligendi est eveniet explicabo, magni, neque nihil nisi praesentium reiciendis saepe sed velit voluptatum.</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquid autem culpa cum dignissimos dolore earum eligendi est eveniet explicabo, magni, neque nihil nisi praesentium reiciendis saepe sed velit voluptatum.</p>
+    <script>
+        function startNoiseToScroll(el) {
+            el.disabled = true;
+            window.nts = noiseToScroll();
+            window.nts.start();
+        }
+
+        function updateSensibility(sensibility) {
+            window.nts.params.clipLevel = sensibility;
+        }
+    </script>
 </body>
 </html>

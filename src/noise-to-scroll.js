@@ -33,6 +33,7 @@ module.exports = (params) => {
         };
     };
 
+    self.params = params;
     self.eventsListeners = {};
     self.volume = 0;
 
