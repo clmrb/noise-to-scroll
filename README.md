@@ -5,6 +5,7 @@ This library uses the Web Audio API (see <https://developer.mozilla.org/fr/docs/
 
 [![Image from Gyazo](https://i.gyazo.com/afe5a1feab8c65d00c6186505aff21ae.gif)](https://gyazo.com/afe5a1feab8c65d00c6186505aff21ae)
 
+**Demo:** https://codepen.io/synx0x/full/qBBZqON
 ## Installation
 
 ```bash
